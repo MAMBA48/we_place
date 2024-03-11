@@ -1,19 +1,24 @@
-import { FormEvent, useState } from "react"
-import Header from "../components/Header"
+import { useState } from "react"
+import { Header } from "../components/Header"
+import axios from "axios"
 
-const PortfolioPage = (event: FormEvent) => {
-    event.preventDefault
+const PortfolioPage = () => {
+    //event.preventDefault
     const [textInput, setTextInput] = useState('')
     //const [info, setInfo] = useState('')
 
+    const req = async () => {
+        const getData = await axios.get('http://localhost:3000/infoUsers')
+        return getData
+    }
+    console.log(req)
     return (
         <>
-        <Header />
             <main className="container">
-            <h2>My Portfólio</h2>
-                <section>
-                    <h3>Training box:</h3>
+            <Header />
+                <section className="section-content">
                     <div>
+                    <h3>Training box:</h3>
                         <form action="">
                             <label htmlFor="">Digite algo:</label>
                             <input 
@@ -35,6 +40,7 @@ const PortfolioPage = (event: FormEvent) => {
                                 border:'1px solid #000',
                                 background:'rgb(0,0,0, 0.250)'
                                 }}>
+                                <tbody>
                                 <tr>
                                     <th>id</th>
                                     <th>info</th>
@@ -45,6 +51,7 @@ const PortfolioPage = (event: FormEvent) => {
                                     <td>{textInput}</td>
                                     <td>data registrada</td>
                                 </tr>
+                                </tbody>
                             </table>
                             <b>LEMBRETE: **o valor setado no state só será atualizado após, toda a execução da função!**</b>
                         </article>

@@ -4,8 +4,7 @@ import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import HomePage from './pages/homePage.tsx'
 import GlobalStyled from './assets/styles/globalStyled.ts'
-import PortfolioPage from './pages/PortfolioPage.tsx'
-import AboutPage from './pages/aboutPage.tsx'
+import PortfolioPage from './pages/portfolioPage.tsx'
 
 const router =  createBrowserRouter([
   {
@@ -14,8 +13,7 @@ const router =  createBrowserRouter([
     errorElement:'',
     children: [
       { path:'/', element:<HomePage /> },
-      { path:'portfolio', element:<PortfolioPage /> },
-      { path:'about', element:<AboutPage /> }
+      { path:'portfolio', element:<PortfolioPage /> }
     ]
   }
 ])
